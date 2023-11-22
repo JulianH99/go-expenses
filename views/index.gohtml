@@ -1,0 +1,30 @@
+{{define "title"}} Home {{ end }}
+
+{{define "content"}}
+
+<h1 class="title">Movements</h1>
+
+<hr />
+
+<ul>
+	{{ range.Movements }}
+	{{ $class := "" }}
+	{{ if eq .MovementType "Expense" }}
+	{{ $class = "expense" }}
+	{{ else }}
+	{{ $class = "income" }}
+	{{ end }}
+	<li class="{{ $class }}">
+		{{ .MovementType }} of {{ .Value }}
+		<span>Made on {{ .Date.Format "January 02, 2006" }}
+	</li>
+	{{ end }}
+</ul>
+
+
+<hr />
+
+{{ template "form" }}
+
+
+{{ end }}
