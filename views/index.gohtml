@@ -6,19 +6,23 @@
 
 <hr />
 
+{{ if not .Movements }}
+  <p>No movements made</p>
+{{ end }}
+
 <ul>
-	{{ range.Movements }}
-	{{ $class := "" }}
-	{{ if eq .MovementType "Expense" }}
-	{{ $class = "expense" }}
-	{{ else }}
-	{{ $class = "income" }}
-	{{ end }}
-	<li class="{{ $class }}">
-		{{ .MovementType }} of {{ .Value }}
-		<span>Made on {{ .Date.Format "January 02, 2006" }}
-	</li>
-	{{ end }}
+  {{ range.Movements }}
+  {{ $class := "" }}
+  {{ if eq .MovementType "Expense" }}
+  {{ $class = "expense" }}
+  {{ else }}
+  {{ $class = "income" }}
+  {{ end }}
+  <li class="{{ $class }}">
+    {{ .MovementType }} of {{ .Value }}
+    <span>Made on {{ .Date.Format "January 02, 2006" }}
+  </li>
+  {{ end }}
 </ul>
 
 

@@ -2,14 +2,21 @@
 
 <form action="/movement/add" method="post">
 
-	<div class="form-element">
-		<label for="value">Value</label>
-		<input type="number" id="value" name="value" />
-	</div>
+  <div class="form-element">
+    <label for="value">Value</label>
+    <input type="number" id="value" name="value" />
+  </div>
+  <div class="form-element">
+    <label for="type">Type</label>
+    <select name="type">
+      <option value="0">Expense</option>
+      <option value="1">Income</option>
+    </select>
+  </div>
 
-	<button type="submit" class="button">
-		Add movement
-	</button>
+  <button type="submit" class="button">
+    Add movement
+  </button>
 
 </form>
 

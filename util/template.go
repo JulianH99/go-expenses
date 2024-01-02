@@ -1,4 +1,4 @@
-package main
+package util
 
 import (
 	"fmt"
@@ -10,8 +10,8 @@ import (
 )
 
 type TemplateOptions struct {
-	templateName string
-	layoutName   string
+	TemplateName string
+	LayoutName   string
 }
 
 func getComponentPaths() []string {
@@ -29,14 +29,14 @@ func getComponentPaths() []string {
 	return componentPaths
 }
 
-func renderTemplate(options TemplateOptions, data any, w http.ResponseWriter) error {
+func RenderTemplate(options TemplateOptions, data any, w http.ResponseWriter) error {
 
-	templatePath := path.Join("views", options.templateName+".gohtml")
+	templatePath := path.Join("views", options.TemplateName+".gohtml")
 	var layoutPath string
-	if options.layoutName == "" {
+	if options.LayoutName == "" {
 		layoutPath = path.Join("views", "layouts", "default.gohtml")
 	} else {
-		layoutPath = path.Join("view", "layouts", options.layoutName+".gohtml")
+		layoutPath = path.Join("view", "layouts", options.LayoutName+".gohtml")
 	}
 
 	components := getComponentPaths()
